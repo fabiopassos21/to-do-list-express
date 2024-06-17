@@ -1,6 +1,11 @@
+// npm install nodemon --save-dev instalar node 
+
+
 const express = require('express')
 
 const app = express(); // package
+
+
 
 app.get('/',(req,res)=>{
    res.send('<h1>Minha lista de tarefa</h1> :/');
