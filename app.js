@@ -1,20 +1,11 @@
-// npm install nodemon --save-dev instalar node 
+const express = require('express');
+const checkListyRouter = require('./src/routes/checklist')
+const app = express(); // Inicializa o Express
 
+app.use (express.json());
 
-const express = require('express')
-
-const app = express(); // package
-
-
-
-app.get('/',(req,res)=>{
-   res.send('<h1>Minha lista de tarefa</h1> :/');
-}) // rota 
-
-app.listen(3000,()=>{
-    console.log("Servidor foi iniciado ") // start
-})
-
-app.get('/json',(red,res)=>{
-    res.json({title:'Tarefa x',done: true})
-})
+app.use('/checklist',checkListyRouter)
+// Inicia o servidor na porta 3000
+app.listen(3000, () => {
+    console.log("Servidor foi iniciado na porta 3000");
+});
